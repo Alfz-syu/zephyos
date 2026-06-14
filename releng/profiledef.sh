@@ -6,9 +6,8 @@ iso_application="ZephyOS - Light as wind, fast as thought"
 iso_version="$(date --rfc-3339=date)"
 install_dir="arch"
 buildmodes=('iso')
-bootmodes=('bios.syslinux.mbr' 'bios.syslinux.eltorito'
-           'uefi-ia32.grub.esp' 'uefi-x64.grub.esp'
-           'uefi-ia32.grub.eltorito' 'uefi-x64.grub.eltorito')
+bootmodes=('bios.syslinux'
+           'uefi.grub')
 arch="x86_64"
 pacman_conf="pacman.conf"
 airootfs_image_type="squashfs"

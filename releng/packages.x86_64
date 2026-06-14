@@ -71,7 +71,7 @@ vulkan-tools
 xf86-video-vesa
 
 # === VULKAN & DIRECTX TRANSLATION ===
-dxvk-bin
+dxvk
 vkd3d
 vkd3d-proton
 lib32-vkd3d
@@ -103,9 +103,9 @@ goverlay
 vkbasalt
 
 # === EMULATOR PLAYSTATION ===
-duckstation        # PS1
-pcsx2              # PS2
-rpcs3              # PS3
+duckstation-gpl    # PS1
+pcsx2-git          # PS2
+rpcs3-git          # PS3
 ppsspp             # PSP
 retroarch          # all-in-one frontend
 retroarch-assets-ozone
@@ -114,7 +114,6 @@ libretro-core-info
 # === CONTROLLER SUPPORT (DualShock/DualSense) ===
 game-devices-udev
 steam-devices
-ds4drv
 sc-controller
 
 # === PERFORMANCE UTILITIES ===
@@ -183,8 +182,7 @@ noto-fonts-emoji
 lib32-fontconfig
 
 # === INSTALLER (GUI, untuk end user) ===
-calamares
-calamares-tools
+cachyos-calamares
 
 plymouth
 
@@ -193,3 +191,4 @@ plymouth
 # oleh: /usr/local/bin/detect-gpu-driver.sh
 # BIOS emulator: lihat README_BIOS_Emulator.txt di Desktop
 # ============================================================
+syslinux
