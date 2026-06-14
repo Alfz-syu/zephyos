@@ -4,6 +4,9 @@
 # Driver GPU dideteksi otomatis oleh script
 # ============================================================
 
+chaotic-keyring
+chaotic-mirrorlist
+
 # === KERNEL & BASE ===
 linux-cachyos
 linux-cachyos-headers
