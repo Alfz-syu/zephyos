@@ -196,3 +196,5 @@ plymouth
 # ============================================================
 syslinux
 mkinitcpio-archiso
+fastfetch
+sddm
