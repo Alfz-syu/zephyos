@@ -103,11 +103,11 @@ goverlay
 vkbasalt
 
 # === EMULATOR PLAYSTATION ===
-duckstation-gpl    # PS1
-pcsx2-git          # PS2
-rpcs3-git          # PS3
-ppsspp             # PSP
-retroarch          # all-in-one frontend
+duckstation-gpl    
+pcsx2-git          
+rpcs3-git          
+ppsspp             
+retroarch          
 retroarch-assets-ozone
 libretro-core-info
 
