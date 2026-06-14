@@ -1,0 +1,4 @@
+output/
+/tmp/zephyos-work/
+*.iso
+*.img

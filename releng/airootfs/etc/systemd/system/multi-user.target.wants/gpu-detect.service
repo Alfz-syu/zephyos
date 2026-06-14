@@ -1,0 +1,13 @@
+[Unit]
+Description=Auto GPU Driver Detection
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=!/var/log/gpu-detect.log
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/detect-gpu-driver.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

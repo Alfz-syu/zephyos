@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Install ZephyOS
+Comment=Install ZephyOS ke harddisk
+Exec=sudo -E calamares
+Icon=calamares
+Terminal=false
+Categories=System;

@@ -1,0 +1,195 @@
+# ============================================================
+# packages.x86_64 — ZephyOS
+# Distro Linux Gaming berbasis CachyOS
+# Driver GPU dideteksi otomatis oleh script
+# ============================================================
+
+# === KERNEL & BASE ===
+linux-cachyos
+linux-cachyos-headers
+linux-firmware
+base
+base-devel
+sudo
+bash
+zsh
+nano
+vim
+git
+wget
+curl
+htop
+unzip
+zip
+p7zip
+rsync
+
+# === BOOT & INIT ===
+grub
+efibootmgr
+os-prober
+mkinitcpio
+systemd-sysvcompat
+dbus
+
+# === NETWORK ===
+networkmanager
+network-manager-applet
+nm-connection-editor
+wpa_supplicant
+iwd
+openssh
+
+# === DISPLAY & WAYLAND ===
+xorg-server
+xorg-xinit
+xorg-xwayland
+wayland
+wayland-protocols
+qt5-wayland
+qt6-wayland
+
+# === DESKTOP — KDE PLASMA ===
+plasma-meta
+plasma-wayland-protocols
+kde-applications-meta
+dolphin
+konsole
+kate
+ark
+okular
+spectacle
+plasma-systemmonitor
+
+# === DRIVER GPU BASE (auto-detect via script) ===
+mesa
+mesa-utils
+lib32-mesa
+vulkan-icd-loader
+lib32-vulkan-icd-loader
+vulkan-tools
+xf86-video-vesa
+
+# === VULKAN & DIRECTX TRANSLATION ===
+dxvk-bin
+vkd3d
+vkd3d-proton
+lib32-vkd3d
+
+# === WINE & PROTON ===
+wine
+wine-mono
+wine-gecko
+winetricks
+protontricks
+proton-cachyos
+lib32-gnutls
+lib32-libpulse
+lib32-alsa-plugins
+
+# === GAME LAUNCHERS ===
+steam
+lutris
+heroic-games-launcher-bin
+bottles
+
+# === GAMING TOOLS & OVERLAY ===
+gamemode
+lib32-gamemode
+gamescope
+mangohud
+lib32-mangohud
+goverlay
+vkbasalt
+
+# === EMULATOR PLAYSTATION ===
+duckstation        # PS1
+pcsx2              # PS2
+rpcs3              # PS3
+ppsspp             # PSP
+retroarch          # all-in-one frontend
+retroarch-assets-ozone
+libretro-core-info
+
+# === CONTROLLER SUPPORT (DualShock/DualSense) ===
+game-devices-udev
+steam-devices
+ds4drv
+sc-controller
+
+# === PERFORMANCE UTILITIES ===
+zram-generator
+earlyoom
+ananicy-cpp
+thermald
+cpupower
+irqbalance
+
+# === AUDIO — PIPEWIRE ===
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+pavucontrol
+easyeffects
+lib32-pipewire
+
+# === STREAMING & RECORDING ===
+obs-studio
+obs-vkcapture
+ffmpeg
+gst-plugins-good
+gst-plugins-bad
+
+# === KOMUNIKASI ===
+discord
+
+# === BROWSER ===
+firefox
+
+# === SECURITY LAYER ===
+ufw
+gufw
+clamav
+clamtk
+rkhunter
+chkrootkit
+firejail
+apparmor
+fail2ban
+
+# === MONITORING ===
+btop
+nvtop
+lm_sensors
+pciutils
+usbutils
+inxi
+
+# === FILESYSTEM SUPPORT ===
+gvfs
+gvfs-mtp
+udisks2
+ntfs-3g
+dosfstools
+exfatprogs
+
+# === FONTS ===
+ttf-dejavu
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+lib32-fontconfig
+
+# === INSTALLER (GUI, untuk end user) ===
+calamares
+calamares-tools
+
+plymouth
+
+# ============================================================
+# Driver GPU spesifik (AMD/NVIDIA/Intel) diinstall OTOMATIS
+# oleh: /usr/local/bin/detect-gpu-driver.sh
+# BIOS emulator: lihat README_BIOS_Emulator.txt di Desktop
+# ============================================================

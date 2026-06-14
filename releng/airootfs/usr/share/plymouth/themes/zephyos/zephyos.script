@@ -1,0 +1,17 @@
+wallpaper_image = Image("zephyos-wallpaper.png");
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+scaled = wallpaper_image.Scale(screen_width, screen_height);
+sprite = Sprite(scaled);
+sprite.SetPosition(0, 0, -100);
+
+logo_image = Image("zephyos-logo.png");
+logo_width = logo_image.GetWidth() * 0.4;
+logo_height = logo_image.GetHeight() * 0.4;
+logo_scaled = logo_image.Scale(logo_width, logo_height);
+logo_sprite = Sprite(logo_scaled);
+logo_sprite.SetPosition(
+    screen_width / 2 - logo_width / 2,
+    screen_height / 2 - logo_height / 2,
+    0
+);
