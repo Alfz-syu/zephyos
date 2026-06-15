@@ -6,8 +6,8 @@ sprite = Sprite(scaled);
 sprite.SetPosition(0, 0, -100);
 
 logo_image = Image("zephyos-logo.png");
-logo_width = logo_image.GetWidth() * 0.4;
-logo_height = logo_image.GetHeight() * 0.4;
+logo_width = logo_image.GetWidth() * 0.3;
+logo_height = logo_image.GetHeight() * 0.3;
 logo_scaled = logo_image.Scale(logo_width, logo_height);
 logo_sprite = Sprite(logo_scaled);
 logo_sprite.SetPosition(
@@ -15,3 +15,29 @@ logo_sprite.SetPosition(
     screen_height / 2 - logo_height / 2,
     0
 );
+
+progress_box_width = 300;
+progress_box_height = 4;
+progress_box_x = screen_width / 2 - progress_box_width / 2;
+progress_box_y = screen_height / 2 + logo_height / 2 + 20;
+
+progress_box = Rectangle(progress_box_width, progress_box_height);
+progress_box.SetColor(0.1, 0.1, 0.1, 0.5);
+progress_box_sprite = Sprite(progress_box);
+progress_box_sprite.SetPosition(progress_box_x, progress_box_y, 0);
+
+progress_bar = Rectangle(1, progress_box_height);
+progress_bar.SetColor(0.0, 0.83, 1.0, 1.0);
+progress_bar_sprite = Sprite(progress_bar);
+progress_bar_sprite.SetPosition(progress_box_x, progress_box_y, 1);
+
+fun boot_progress_cb(duration, progress) {
+    progress_bar = Rectangle(
+        Math.Int(progress_box_width * progress),
+        progress_box_height
+    );
+    progress_bar.SetColor(0.0, 0.83, 1.0, 1.0);
+    progress_bar_sprite.SetImage(progress_bar);
+}
+
+Plymouth.SetBootProgressFunction(boot_progress_cb);

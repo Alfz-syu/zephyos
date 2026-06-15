@@ -1,2 +1,7 @@
 [Containments][1][Wallpaper][org.kde.image][General]
 Image=/usr/share/wallpapers/ZephyOS/zephyos-wallpaper.png
+ImageFillMode=2
+
+[Containments][2][Wallpaper][org.kde.image][General]
+Image=/usr/share/wallpapers/ZephyOS/zephyos-wallpaper.png
+ImageFillMode=2
