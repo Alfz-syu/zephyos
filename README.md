@@ -145,7 +145,7 @@ zephyos/
 │       └── usr/share/
 │           ├── wallpapers/ZephyOS/
 │           └── plymouth/themes/zephyos/
-└── output/                          # ISO hasil build
+└── output/                        
 ```
 
 ---
