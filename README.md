@@ -64,12 +64,12 @@ Yunani yang melambangkan dua karakteristik utama distro ini: ringan dan cepat.
 
 ## Emulator PlayStation
 
-| Konsol | Emulator | Status |
-|--------|----------|--------|
-| PS1 | DuckStation | Matang, 99% compat |
-| PS2 | PCSX2 | Matang, ~95% compat |
-| PS3 | RPCS3 | ~70% playable |
-| PSP | PPSSPP | Hampir sempurna |
+| Konsol | Emulator |
+|--------|----------|
+| PS1 | DuckStation |
+| PS2 | PCSX2 |
+| PS3 | RPCS3 |
+| PSP | PPSSPP |
 
 > File BIOS tidak disertakan. Lihat `README_BIOS_Emulator.txt` di desktop setelah install.
 
