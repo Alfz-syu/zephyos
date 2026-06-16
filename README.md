@@ -33,6 +33,7 @@ Yunani yang melambangkan dua karakteristik utama distro ini: ringan dan cepat.
 - GUI installer Calamares — zero CLI untuk end user
 - KDE Plasma (Wayland) — ringan, RAM idle di bawah 800MB
 - Controller DualShock/DualSense otomatis terdeteksi
+- Autologin sebagai `liveuser` di live session
 
 ---
 
@@ -43,8 +44,8 @@ Yunani yang melambangkan dua karakteristik utama distro ini: ringan dan cepat.
 | Base OS | CachyOS (Arch-based) |
 | Kernel | linux-cachyos (BORE scheduler) |
 | Desktop | KDE Plasma (Wayland) |
-| Display Manager | Plasma Login Manager |
-| Bootloader | Limine |
+| Display Manager | SDDM |
+| Bootloader | GRUB |
 | Installer | Calamares (GUI) |
 | Target RAM idle | < 800 MB |
 
@@ -63,12 +64,12 @@ Yunani yang melambangkan dua karakteristik utama distro ini: ringan dan cepat.
 
 ## Emulator PlayStation
 
-| Konsol | Emulator |
-|--------|----------|
-| PS1 | DuckStation |
-| PS2 | PCSX2 |
-| PS3 | RPCS3 |
-| PSP | PPSSPP |
+| Konsol | Emulator | Status |
+|--------|----------|--------|
+| PS1 | DuckStation | Matang, 99% compat |
+| PS2 | PCSX2 | Matang, ~95% compat |
+| PS3 | RPCS3 | ~70% playable |
+| PSP | PPSSPP | Hampir sempurna |
 
 > File BIOS tidak disertakan. Lihat `README_BIOS_Emulator.txt` di desktop setelah install.
 
@@ -100,33 +101,16 @@ membentuk huruf Z, melambangkan aliran data dan frame rate yang mulus.
 - Disk: minimum 60GB free
 - Internet stabil
 
-### Cara Build Otomatis
+### Cara Build Manual
 
 ```bash
 git clone https://github.com/Alfz-syu/zephyos.git
 cd zephyos
-sudo ./build.sh
-```
-
-### Cara Build Manual
-
-```bash
 sudo mkarchiso -v \
-    -w /tmp/zephyos-work \
+    -w /home/$USER/zephyos-work \
     -o output/ \
     releng/
 ```
-
-### Commands build.sh
-
-| Command | Fungsi |
-|---------|--------|
-| `sudo ./build.sh` | Build lengkap (setup + build + test) |
-| `sudo ./build.sh setup` | Setup releng + apply customization saja |
-| `sudo ./build.sh build` | Build ISO + generate checksum |
-| `sudo ./build.sh test` | Test ISO di QEMU |
-| `sudo ./build.sh clean` | Hapus working dir & backup output lama |
-| `sudo ./build.sh help` | Tampilkan help |
 
 ISO akan tersimpan di folder `output/`.
 
@@ -136,21 +120,23 @@ ISO akan tersimpan di folder `output/`.
 
 ```
 zephyos/
-├── build.sh                         # Script build otomatis
 ├── README.md
 ├── assets/
 │   └── zephyos-logo.png
-├── releng/                          # Profil archiso
-│   ├── packages.x86_64             # Daftar paket
-│   ├── profiledef.sh               # Identitas ISO
-│   ├── pacman.conf                 # Repo pacman + Chaotic-AUR
+├── releng/                          
+│   ├── packages.x86_64             
+│   ├── profiledef.sh               
+│   ├── pacman.conf                 
 │   └── airootfs/
 │       ├── usr/local/bin/
 │       │   ├── detect-gpu-driver.sh
 │       │   └── post-install-gpu.sh
 │       ├── etc/
 │       │   ├── systemd/system/
-│       │   │   └── gpu-detect.service
+│       │   │   ├── gpu-detect.service
+│       │   │   └── display-manager.service
+│       │   ├── sddm.conf.d/
+│       │   │   └── autologin.conf
 │       │   ├── skel/Desktop/
 │       │   │   ├── install-zephyos.desktop
 │       │   │   └── README_BIOS_Emulator.txt
@@ -171,10 +157,27 @@ Burn ISO ke USB dengan Rufus (Windows):
 - Target system: **UEFI (non CSM)**
 - Write mode: **DD Image mode**
 
+Atau dengan Ventoy — copy ISO ke partisi Ventoy, selesai.
+
 Atau dengan dd (Linux):
 ```bash
 sudo dd if=output/zephyos-*.iso of=/dev/sdX bs=4M status=progress
 ```
+
+---
+
+## Konfigurasi VirtualBox
+
+| Setting | Nilai |
+|---------|-------|
+| Type | Linux (Arch 64-bit) |
+| RAM | 4096 MB minimum |
+| EFI | Enable (wajib) |
+| Disk | 30 GB |
+| Storage Controller | SATA (bukan IDE) |
+| Live CD/DVD | Centang |
+| Graphics Controller | VMSVGA |
+| Video Memory | 128 MB |
 
 ---
 
@@ -186,7 +189,7 @@ Edit file di folder `releng/`:
 - **Edit script GPU** → edit `releng/airootfs/usr/local/bin/detect-gpu-driver.sh`
 - **Ganti identitas ISO** → edit `releng/profiledef.sh`
 
-Lalu build ulang dengan `sudo ./build.sh`
+Lalu build ulang dengan `sudo mkarchiso`.
 
 ---
 
